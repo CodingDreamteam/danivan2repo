@@ -26,8 +26,6 @@ public class homeController extends SelectorComposer<Component> {
     
     private static final long serialVersionUID = -6992273830457634170L;
        
-    @Wire( "#includeNorthContent #labelHeader" )
-    Label labelHeader;
        
     @Wire
     Tabbox tabboxMainContent;
@@ -57,7 +55,7 @@ public void initView() {
         
 
   
-        Component[] components = Executions.getCurrent().createComponents( "/tabs/productos.zul", null );
+        Component[] components = Executions.getCurrent().createComponents( "tabs/productos.zul", null );
        
         Tab tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
                      
