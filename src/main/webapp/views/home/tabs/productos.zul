@@ -1,35 +1,39 @@
-<?page title="productos" contentType="text/html;charset=UTF-8"?>
+<?page title="home" contentType="text/html;charset=UTF-8"?>
 
 <zk>
-   <tab  id="tabpro" label="Productos"  />
+    
+    <tab  id="tabpro" label="Productos"  />
  
-    <tabpanel  style="margin-top:10px;"  id="tabPanelProductos" apply="" >
+    <tabpanel  style="margin-top:10px;"  id="tabPanelProductos" apply="DanivanII.controller.tab.CTabProducController" >
   
 	
-	<div width="100%" height="15%" id="busque">
-		<vlayout>
-		<grid  hflex="min">
-		 <rows>
-		   <row>
-		    <label id="buscar" value="Buscar Codigo"/>
-		    <textbox id="codigobus" value="" ></textbox>
+	   <div width="100%" height="15%" id="busquePro">
+		  <vlayout>
+		   <grid  hflex="min">
 		    
-		   </row> 
+		    <rows>
+		     
+		      <row>
+		     
+		       <label id="buscar" value="Buscar Codigo"/>
+		       <textbox id="codigobus" value="" ></textbox>
 		    
-		 </rows>
+		      </row> 
+		    
+		     </rows>
 
-		</grid>
+	    	</grid>
 
-		</vlayout>
-	     <div style="float: right;" >
-		   <button id="busqueproduc" label="buscar" style="margin-top:-20%;"></button>
-		   <button id="busquedaavan" label="busqueda avansada" style="margin-top:-20%;"></button>
-	    </div>
-	</div>
+		    </vlayout>
+	        <div style="float: right;" >
+		      <button id="busqueproduc" label="buscar" style="margin-top:-20%;"></button>
+		      <button id="busquedaavan" label="busqueda avansada" style="margin-top:-20%;"></button>
+	       </div>
+	  </div>
 
-	<div  id="mostrar"  width="100%" height="70%" style="float: right;">
+	     <div  id="mostrarClie"  width="100%" height="70%" style="float: right;">
 	       
-	       	<listbox id="listboxpersons" width="100%" height="360px">
+	       	<listbox id="listboxProductos" width="100%" height="360px">
             <listhead width="100%" height="100%">
            
             <listheader label="Codigo" width="16%"></listheader>
@@ -41,14 +45,15 @@
             </listhead>
             </listbox>
 
-            <div id="buttoncontainer">
+            <div id="buttoncontainerPro">
+            
                 <button id="buttondelete" label="Borrar" style="float:right;margin-left:15px"></button>
                 <button id="buttonmodify" label="Modificar" style="float:right;margin-left:15px"></button>
                 <button id="buttonadd" label="Añadir" style="float:right;margin-left:15px"></button>
+           
             </div>            	        
 	    </div>
-	
-	     </tabpanel>
+	 </tabpanel>
   
 
 </zk>

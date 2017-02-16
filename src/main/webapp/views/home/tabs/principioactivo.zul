@@ -1,0 +1,54 @@
+<?page title="Home" contentType="text/html;charset=UTF-8"?>
+<zk>
+   <tab  id="tabPrinAC" label="Principios Activos"  />
+ 
+    <tabpanel  style="margin-top:10px;"   >
+  
+	
+	<div width="100%" height="15%">
+		<vlayout>
+		<grid  hflex="min">
+		 
+		 <rows>
+		 
+		   <row>
+		    
+		    <label id="labelBuscarPrinAC" value="Buscar codigo"/>
+		    <textbox id="textCodigoBusPrinAC" value="" ></textbox>
+		    
+		   </row> 
+		    
+		 </rows>
+
+		</grid>
+
+		</vlayout>
+	    
+	     <div style="float: right;" >
+		
+		   <button id="buttonBusquePrinAC" label="buscar" style="margin-top:-20%;"></button>
+		
+		   <button id="buttonBusquedaAvanPrinAC" label="busqueda avansada" style="margin-top:-20%;"></button>
+	    
+	    </div>
+	</div>
+
+	<div  id="MostrarPrinAC"  width="100%" height="70%" style="float: right;">
+	       
+	       	<listbox id="listboxPrinAC" width="100%" height="360px">
+            <listhead width="100%" height="100%">     
+            <listheader label="Codigo" width="16%"></listheader>
+            <listheader label="Nombre" width="16%"></listheader>
+        
+            </listhead>
+            </listbox>
+
+            <div id="buttoncontainerPrinAC">
+                <button id="buttondeletePrinAC" label="Borrar" style="float:right;margin-left:15px"></button>
+                <button id="buttonmodifyPrinAC" label="Modificar" style="float:right;margin-left:15px"></button>
+                <button id="buttonaddPrinAC" label="Añadir" style="float:right;margin-left:15px"></button>
+            </div>            	        
+	    </div>
+	
+	 </tabpanel>
+</zk>

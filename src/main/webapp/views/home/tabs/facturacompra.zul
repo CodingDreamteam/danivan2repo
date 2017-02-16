@@ -1,0 +1,57 @@
+<?page title="home" contentType="text/html;charset=UTF-8"?>
+  
+<zk>
+ 
+   <tab  id="tabCompra" label="Factura De Compra"  />
+ 
+    <tabpanel  style="margin-top:10px;"   >
+  
+	
+	<div width="100%" height="15%">
+		<vlayout>
+		<grid  hflex="min">
+		 
+		 <rows>
+		 
+		   <row>
+		    
+		    <label id="labelBuscarCompra" value="Buscar codigo"/>
+		    <textbox id="textCodigoBusCompra" value="" ></textbox>
+		    
+		   </row> 
+		    
+		 </rows>
+
+		</grid>
+
+		</vlayout>
+	    
+	     <div style="float: right;" >
+		
+		   <button id="buttonBusqueCompra" label="buscar" style="margin-top:-20%;"></button>
+		
+		   <button id="buttonBusquedaAvanCompra" label="busqueda avansada" style="margin-top:-20%;"></button>
+	    
+	    </div>
+	</div>
+
+	<div  id="MostrarCompra"  width="100%" height="70%" style="float: right;">
+	       
+	       	<listbox id="listboxcompra" width="100%" height="360px">
+            <listhead width="100%" height="100%">     
+            <listheader label="Nro Factura" width="16%"></listheader>
+            <listheader label="Fecha" width="16%"></listheader>
+            <listheader label="Total" width="16%"></listheader>
+            <listheader label="Estado" width="16%"></listheader>         
+            </listhead>
+            </listbox>
+
+            <div id="buttoncontainerCompra">
+                <button id="buttondeleteCompra" label="Borrar" style="float:right;margin-left:15px"></button>
+                <button id="buttonmodifyCompra" label="Modificar" style="float:right;margin-left:15px"></button>
+                <button id="buttonaddCompra" label="Añadir" style="float:right;margin-left:15px"></button>
+            </div>            	        
+	    </div>
+	
+	 </tabpanel>
+</zk>

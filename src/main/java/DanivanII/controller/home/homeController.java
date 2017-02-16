@@ -71,11 +71,184 @@ public void initView() {
             
             
             if ( tabPanel != null )
+            	
                 tabboxMainContent.getTabpanels().appendChild( tabPanel );
         
         }
         
-   
+        components = Executions.getCurrent().createComponents( "tabs/presentacion.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+        
+        components = Executions.getCurrent().createComponents( "tabs/proveedor.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+        components = Executions.getCurrent().createComponents( "tabs/cliente.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+     components = Executions.getCurrent().createComponents( "tabs/abonos.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+     components = Executions.getCurrent().createComponents( "tabs/facturacompra.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+     components = Executions.getCurrent().createComponents( "tabs/facturasventas.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+     components = Executions.getCurrent().createComponents( "tabs/principioactivo.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+     components = Executions.getCurrent().createComponents( "tabs/ajuste.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+        
+     components = Executions.getCurrent().createComponents( "tabs/marca.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+     components = Executions.getCurrent().createComponents( "tabs/tipomedi.zul", null );
+        
+        tab = (Tab) ZKUtilities.getComponent( components, "Tab" );  
+                     
+        if ( tab != null ) {
+            
+           
+            tabboxMainContent.getTabs().appendChild( tab );
+            
+            
+            Tabpanel tabPanel = (Tabpanel) ZKUtilities.getComponent( components, "Tabpanel" );      
+       
+            if ( tabPanel != null )
+            	
+                tabboxMainContent.getTabpanels().appendChild( tabPanel );
+        
+        }
+        
         
 }
     

@@ -1,17 +1,20 @@
-<?page title="presentación " contentType="text/html;charset=UTF-8"?>
+<?page title="home" contentType="text/html;charset=UTF-8"?>
+
 <zk>
-   <tab  id="tabpro" label="Productos"  />
+   <tab  id="tabpre" label="Presentacion"  />
  
-    <tabpanel  style="margin-top:10px;"  id="tabPanelProductos" apply="" >
-  
-	
-	<div width="100%" height="15%" id="busque">
+    <tabpanel  style="margin-top:10px;"   >
+
+	<div width="100%" height="15%" id="busquepre">
 		<vlayout>
 		<grid  hflex="min">
+		 
 		 <rows>
+		 
 		   <row>
-		    <label id="buscar" value="Buscar Codigo"/>
-		    <textbox id="codigobus" value="" ></textbox>
+		    
+		    <label id="labelBuscarPre" value="Buscar codigo"/>
+		    <textbox id="textCodigoBusPre" value="" ></textbox>
 		    
 		   </row> 
 		    
@@ -20,32 +23,44 @@
 		</grid>
 
 		</vlayout>
+	    
 	     <div style="float: right;" >
-		   <button id="busqueproduc" label="buscar" style="margin-top:-20%;"></button>
-		   <button id="busquedaavan" label="busqueda avansada" style="margin-top:-20%;"></button>
+		
+		   <button id="buttonBusquePre" label="buscar" style="margin-top:-20%;"></button>
+		
+		   <button id="buttonBusquedaAvanPre" label="busqueda avansada" style="margin-top:-20%;"></button>
+	    
 	    </div>
 	</div>
 
-	<div  id="mostrar"  width="100%" height="70%" style="float: right;">
+	<div  id="MostrarPre"  width="100%" height="70%"   style="float: right;">
 	       
-	       	<listbox id="listboxpersons" width="100%" height="360px">
-            <listhead width="100%" height="100%">
-           
-            <listheader label="Codigo" width="16%"></listheader>
-            <listheader label="Nombre" width="16%"></listheader>
-            <listheader label="fecha ingreso" width="16%"></listheader>
-            <listheader label="Modo De Empleo" width="16%"></listheader>
-            <listheader label="Principio Activo" width="16%"></listheader>
-            <listheader label="Codigo de barra" width="16%"> </listheader>           
+	       	<listbox id="listpresenta" width="100%" height="360px">
+       
+            <listhead width="100%" height="100%">     
+            <listheader label="NLote" width="11%"></listheader>
+            <listheader label="Nombre" width="11%"></listheader>
+            <listheader label="C Existencia" width="11%"></listheader>
+            <listheader label="Costo" width="11%"></listheader>
+            <listheader label="Precio venta" width="11%"></listheader>
+            <listheader label="F Vencimiento" width="11%"> </listheader> 
+            <listheader label="Medida" width="11%"> </listheader>
+            <listheader label="Prescripcion" width="11%"> </listheader>
+            <listheader label="C. producto" width="11%"> </listheader>          
+       
             </listhead>
+       
             </listbox>
 
-            <div id="buttoncontainer">
-                <button id="buttondelete" label="Borrar" style="float:right;margin-left:15px"></button>
-                <button id="buttonmodify" label="Modificar" style="float:right;margin-left:15px"></button>
-                <button id="buttonadd" label="Añadir" style="float:right;margin-left:15px"></button>
+            <div id="buttoncontainerPre">
+       
+                <button id="buttondeletePre" label="Borrar" style="float:right;margin-left:15px"></button>
+                <button id="buttonmodifyPre" label="Modificar" style="float:right;margin-left:15px"></button>
+                <button id="buttonaddPre" label="Añadir" style="float:right;margin-left:15px"></button>
+       
             </div>            	        
-	    </div>
+	   
+	   </div>
 	
-	     </tabpanel>
+	 </tabpanel>
 </zk>
