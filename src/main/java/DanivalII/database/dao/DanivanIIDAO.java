@@ -3,9 +3,13 @@ package DanivalII.database.dao;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+
+
 import DanivalII.database.CDatabaseConnection;
 import DanivalII.database.datamodel.TBLPresentacion;
 import DanivalII.database.datamodel.TBLProductos;
+import DanivalII.database.datamodel.TBLUser;
+
 
 public class DanivanIIDAO {
 
@@ -52,7 +56,46 @@ public class DanivanIIDAO {
        
     }
     
-    public static TBLProductos GetProducto (final CDatabaseConnection dbConnection, String strCodProducto) {
+    
+    public static TBLUser checkData( final CDatabaseConnection dbConnection, final String strUser, final String strPassword ) {
+        
+        TBLUser result = null;
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM tblUser WHERE userName = '" + strUser + "' AND Password = '" + strPassword + "'");
+                
+                if ( resultSet.next() ) {
+                    
+                    result = new TBLUser();
+                    
+                    result.setId( resultSet.getString( "ID" ) );
+                    result.setUserName( resultSet.getString( "Name" ) );
+                    result.setPassword( resultSet.getString( "Password" ) );
+                 
+                }
+                
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+
+            
+        }
+        
+        return result;
+    }
+
+
+
+    
+    
+  /*  public static TBLProductos GetProducto (final CDatabaseConnection dbConnection, String strCodProducto) {
         
         TBLProductos result = null; 
         
@@ -92,6 +135,6 @@ public class DanivanIIDAO {
         return result; 
         
      }
-    
+    */
     
 }

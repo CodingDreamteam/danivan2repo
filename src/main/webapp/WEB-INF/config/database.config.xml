@@ -5,8 +5,8 @@
 <entry key= "driver">org.postgresql.Driver</entry>
 <entry key= "prefix">jdbc:postgresql://</entry>
 <entry key= "host">localhost</entry>
-<entry key= "port">3306</entry>
-<entry key= "user">root</entry>
-<entry key= "password">123885</entry>
-<entry key= "database">danivan2</entry>
+<entry key= "port">5432</entry>
+<entry key= "user">ali</entry>
+<entry key= "password">alimarcano</entry>
+<entry key= "database">danivanii</entry>
 </properties>

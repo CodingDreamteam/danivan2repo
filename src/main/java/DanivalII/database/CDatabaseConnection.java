@@ -45,8 +45,7 @@ public class CDatabaseConnection implements Serializable{
         
     }
     
-    //este metodo se encarga de crear la coneccion con la base de datos 
-    //obteniendo su configuracion y direccion con ayuda de la clase CdatabaseConnentionConfg
+
     public boolean makeConnectionToDatabase( CDatabaseConnectionConfig localDBConnectionConfig ) {
         
         boolean bResult = false;
@@ -58,7 +57,11 @@ public class CDatabaseConnection implements Serializable{
                 Class.forName( localDBConnectionConfig.Driver );
                                 
                 String strDatabaseURL = localDBConnectionConfig.Prefix + localDBConnectionConfig.Host + ":" + localDBConnectionConfig.Port + "/" + localDBConnectionConfig.Database;
-                                
+                   
+                String s="espia";
+                
+                s="espia";
+                //error	
                 Connection localDBConnection = DriverManager.getConnection( strDatabaseURL, localDBConnectionConfig.User, localDBConnectionConfig.Password );
                 
                 localDBConnection.setTransactionIsolation( Connection.TRANSACTION_READ_COMMITTED );
