@@ -22,8 +22,10 @@ public class TBLPresentacion implements Serializable{
     protected String strMedida = null;
     
     protected boolean bprescripcion = false;
+    
+    protected String strCodProducto = null;
 
-    public TBLPresentacion( String strNLote, String strNombre, int intCantidadExistencia, Double dCosto, Double precioVenta, LocalDate fechaVencimiento, String strMedida, boolean prescripcion ) {
+    public TBLPresentacion( String strNLote, String strNombre, int intCantidadExistencia, Double dCosto, Double precioVenta, LocalDate fechaVencimiento, String strMedida, boolean prescripcion, String strCodProducto ) {
         super();
         this.strNLote = strNLote;
         this.strNombre = strNombre;
@@ -33,6 +35,7 @@ public class TBLPresentacion implements Serializable{
         this.FechaVencimiento = fechaVencimiento;
         this.strMedida = strMedida;
         this.bprescripcion = prescripcion;
+        this.strCodProducto = strCodProducto;
     }
     
     public TBLPresentacion( ) {
@@ -40,6 +43,16 @@ public class TBLPresentacion implements Serializable{
 
     }
 
+    public String getCodProducto() {
+        
+        return strCodProducto;
+    }
+
+    
+    public void setCodProducto( String strCodProducto ) {
+        
+        this.strCodProducto = strCodProducto;
+    }
     
     public String getNLote() {
         
