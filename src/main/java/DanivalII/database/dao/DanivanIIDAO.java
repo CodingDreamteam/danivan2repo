@@ -66,7 +66,51 @@ public class DanivanIIDAO {
        return result; 
        
     }
+    
+    public static List<TBLPresentacion> GetPresentaciones (final CDatabaseConnection dbConnection) {
         
+        List<TBLPresentacion> result = new ArrayList<TBLPresentacion>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM presentacion" );
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLPresentacion tblPresentacion = new TBLPresentacion(); 
+                    
+                    tblPresentacion.setNLote( resultSet.getString( "N_Lote" ) );
+                    tblPresentacion.setCantidadExistencia( resultSet.getInt( "cant_existencia" ) );
+                    tblPresentacion.setCosto( resultSet.getDouble( "costo" ) );
+                    tblPresentacion.setFechaVencimiento( resultSet.getDate( "vencimiento" ).toLocalDate() );
+                    tblPresentacion.setMedida( resultSet.getString( "medida" ) );
+                    tblPresentacion.setNombre( resultSet.getString( "nombre_presentacion" ) );
+                    tblPresentacion.setPrecioVenta( resultSet.getDouble( "pvp" ) );
+                    tblPresentacion.setPrescripcion( resultSet.getBoolean( "prescripcion" ) );
+                    tblPresentacion.setCodProducto( resultSet.getString( "codigo_producto" ) );
+                    
+                    result.add( tblPresentacion );
+                }
+                
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+        
+        
+        return result; 
+        
+     }
+    
     public static TBLPrincipioActivo GetPrincipioActivo (final CDatabaseConnection dbConnection, String strCodPrincipio) {
         
         TBLPrincipioActivo result = null; 
@@ -76,7 +120,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE codigo_principio = '" + strCodPrincipio + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM principio_activo WHERE codigo_principio = '" + strCodPrincipio + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -103,6 +147,43 @@ public class DanivanIIDAO {
         
      }
     
+    public static List<TBLPrincipioActivo> GetPrincipioActivos (final CDatabaseConnection dbConnection) {
+        
+        List<TBLPrincipioActivo> result = new ArrayList<TBLPrincipioActivo>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM principio_activo");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLPrincipioActivo tblPrincipioActivo = new TBLPrincipioActivo(); 
+                    
+                    tblPrincipioActivo.setCodigo( resultSet.getString( "codigo_principio" ) );
+                    tblPrincipioActivo.setNombre( resultSet.getString( "nombre_principio" ) );
+                    tblPrincipioActivo.setDescripcion( resultSet.getString( "descripcion" ) );
+                    
+                    result.add( tblPrincipioActivo );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
+    
     public static TBLEstablece GetEstablece (final CDatabaseConnection dbConnection, String strNLote, String strCodProducto, String strRif) {
         
         TBLEstablece result = null; 
@@ -112,7 +193,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE n_lote = '" + strNLote + "' And codigo_producto = '" + strCodProducto + "' AND rif = '" + strRif + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM establece WHERE n_lote = '" + strNLote + "' And codigo_producto = '" + strCodProducto + "' AND rif = '" + strRif + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -142,6 +223,46 @@ public class DanivanIIDAO {
         
      }
     
+    public static List<TBLEstablece> GetEstableces (final CDatabaseConnection dbConnection) {
+        
+        List<TBLEstablece> result = new ArrayList<TBLEstablece>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM establece");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLEstablece tblEstablece = new TBLEstablece(); 
+                    
+                    tblEstablece.setNLotePresentacion( resultSet.getString( "n_lote" ) );
+                    tblEstablece.setCodproducto( resultSet.getString( "codigo_producto" ) );
+                    tblEstablece.setNcompraFacturaC( resultSet.getString( "n_compra" ) );
+                    tblEstablece.setRifProveedor( resultSet.getString( "rif" ) );
+                    tblEstablece.setCantpedida( resultSet.getString( "cantidad_pedida" ) );
+                    tblEstablece.setCostoCompra( resultSet.getDouble( "costo_compra" ) );
+                    
+                    result.add( tblEstablece );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
+    
     public static TBLGenera GetGenera (final CDatabaseConnection dbConnection, String strNLote, String strCodProducto, String strNventa) {
         
         TBLGenera result = null; 
@@ -151,7 +272,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE n_lote = '" + strNLote + "' And codigo_producto = '" + strCodProducto + "' AND n_venta = '" + strNventa + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM genera WHERE n_lote = '" + strNLote + "' And codigo_producto = '" + strCodProducto + "' AND n_venta = '" + strNventa + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -181,6 +302,46 @@ public class DanivanIIDAO {
         
      }
     
+    public static List<TBLGenera> GetGeneras (final CDatabaseConnection dbConnection) {
+        
+        List<TBLGenera> result = new ArrayList<TBLGenera>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM genera");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLGenera tblGenera = new TBLGenera(); 
+                    
+                    tblGenera.setNLotePresentacion( resultSet.getString( "n_lote" ) );
+                    tblGenera.setCodProducto( resultSet.getString( "codigo_producto" ) );
+                    tblGenera.setNVentaFacturaV( resultSet.getString( "n_venta" ) );
+                    tblGenera.setPrecioVentaV(  resultSet.getDouble( "pvp_variable" ) );
+                    tblGenera.setCantidad( resultSet.getInt( "cantidad" ) );
+                    tblGenera.setCosto( resultSet.getString( "costo" ) );
+
+                    result.add( tblGenera );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
+    
     public static TBLAbono GetAbono (final CDatabaseConnection dbConnection, String strNabono, String strId, String strNventa) {
         
         TBLAbono result = null; 
@@ -190,7 +351,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE n_abono = '" + strNabono + "' And id = '" + strId + "' AND n_venta = '" + strNventa + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM abono WHERE n_abono = '" + strNabono + "' And id = '" + strId + "' AND n_venta = '" + strNventa + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -218,6 +379,44 @@ public class DanivanIIDAO {
         
      }
     
+    public static List<TBLAbono> GetAbonos (final CDatabaseConnection dbConnection, String strNabono, String strId, String strNventa) {
+        
+        List<TBLAbono> result = new ArrayList<TBLAbono>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM abono");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLAbono tblAbono = new TBLAbono(); 
+                    
+                    tblAbono.setNumero( resultSet.getString( "n_abono" ) );
+                    tblAbono.setNVentasFacturaV( resultSet.getString( "n_venta" ) );
+                    tblAbono.setIdCliente( resultSet.getString( "id" ) );
+                    tblAbono.setCantidad( resultSet.getDouble( "cantidad" ) );
+
+                    result.add( tblAbono );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
+    
     public static TBLAjuste GetAjuste (final CDatabaseConnection dbConnection, String strCodProducto, int Najuste, String Nlote ) {
         
         TBLAjuste result = null; 
@@ -227,7 +426,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE codigo_producto = '" + strCodProducto + "' AND n_ajuste = " + Najuste + " AND n_lote = '" + Nlote + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM ajuste  WHERE codigo_producto = '" + strCodProducto + "' AND n_ajuste = " + Najuste + " AND n_lote = '" + Nlote + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -258,6 +457,47 @@ public class DanivanIIDAO {
         
      }
     
+    public static List<TBLAjuste> GetAjustes (final CDatabaseConnection dbConnection) {
+        
+        List<TBLAjuste> result = new ArrayList<TBLAjuste>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM ajuste");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLAjuste tblAjuste = new TBLAjuste(); 
+                    
+                    tblAjuste.setNumero( resultSet.getInt( "codigo_principio" ) );
+                    tblAjuste.setFecha( resultSet.getDate( "fecha_ajuste" ).toLocalDate() );
+                    tblAjuste.setObservacion( resultSet.getString( "observacion_ajuste" ) );
+                    tblAjuste.setTipo( resultSet.getString( "tipo_ajuste" ) );
+                    tblAjuste.setCantidad( resultSet.getInt( "cant_ajuste" ) );
+                    tblAjuste.setNlotePresentacion( resultSet.getString( "n_lote" ) );
+                    tblAjuste.setCodproducto( resultSet.getString( "codigo_producto" ) );
+
+                    result.add( tblAjuste );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
+    
     public static TBLFacturaVenta GetFacturaVenta (final CDatabaseConnection dbConnection, String strNventa, String strId) {
         
         TBLFacturaVenta result = null; 
@@ -267,7 +507,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE id = '" + strNventa + "' AND n_venta ='" + strNventa + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM factura_venta WHERE id = '" + strId + "' AND n_venta ='" + strNventa + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -297,6 +537,47 @@ public class DanivanIIDAO {
         return result; 
         
      }
+    
+    public static List<TBLFacturaVenta> GetFacturaVentas (final CDatabaseConnection dbConnection) {
+        
+        List<TBLFacturaVenta> result = new ArrayList<TBLFacturaVenta>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM factura_venta");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLFacturaVenta tblFacturaVenta = new TBLFacturaVenta(); 
+                    
+                    tblFacturaVenta.setNventa( resultSet.getString( "n_venta" ) );
+                    tblFacturaVenta.setStrIdCliente( resultSet.getString( "id" ) );
+                    tblFacturaVenta.setDescription( resultSet.getString( "descripcion" ) );
+                    tblFacturaVenta.setEstado( resultSet.getString( "estado" ) );
+                    tblFacturaVenta.setFventa( resultSet.getDate( "fecha_venta" ).toLocalDate() );
+                    tblFacturaVenta.setDTotal( resultSet.getDouble( "total" ) );
+                    tblFacturaVenta.setNcaja( resultSet.getInt( "n_caja" ) );
+ 
+                    result.add( tblFacturaVenta );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
 
     public static TBLFacturaCompra GetFacturaCompra (final CDatabaseConnection dbConnection, String strNcompra, String strRif) {
         
@@ -307,7 +588,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE n_compra = '" + strNcompra + "' AND rif ='" + strRif + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM factura_compra WHERE n_compra = '" + strNcompra + "' AND rif ='" + strRif + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -335,6 +616,43 @@ public class DanivanIIDAO {
         
      }
     
+    public static List<TBLFacturaCompra> GetFacturaCompras (final CDatabaseConnection dbConnection) {
+        
+        List<TBLFacturaCompra> result = new ArrayList<TBLFacturaCompra>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM factura_compra");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLFacturaCompra tblFacturaCompra = new TBLFacturaCompra(); 
+                    
+                    tblFacturaCompra.setNFacutra( resultSet.getString( "n_compra" ) );
+                    tblFacturaCompra.setFechaRecepcion( resultSet.getDate( "fecha_recepcion" ).toLocalDate() );
+                    tblFacturaCompra.setEstado( resultSet.getString( "estado" ) );
+                    tblFacturaCompra.setTotal( resultSet.getDouble( "total" ) );
+
+                    result.add( tblFacturaCompra );
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
     
     public static TBLCliente GetCliente (final CDatabaseConnection dbConnection, String strId) {
         
@@ -345,7 +663,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE id = '" + strId + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM cliente WHERE id = '" + strId + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -372,6 +690,43 @@ public class DanivanIIDAO {
         
      }
 
+    public static List<TBLCliente> GetClientes (final CDatabaseConnection dbConnection, String strId) {
+        
+        List<TBLCliente> result = new ArrayList<TBLCliente>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM cliente");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLCliente tblCliente = new TBLCliente(); 
+                    
+                    tblCliente.setCI( resultSet.getString( "id" ) );
+                    tblCliente.setNombre( resultSet.getString( "nombre" ) );
+                    tblCliente.setTelefono( resultSet.getString( "telefono" ) );
+                         
+                    result.add( tblCliente );
+                    
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+                
+        return result; 
+        
+     }
     
     public static TBLProductos GetProducto (final CDatabaseConnection dbConnection, String strCodProducto) {
         
@@ -462,7 +817,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto WHERE codigo_marca = '" + strCodMarca + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM marca WHERE codigo_marca = '" + strCodMarca + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -471,6 +826,45 @@ public class DanivanIIDAO {
                     result.setCodigo( resultSet.getString( "codigo_marca" ) );
                     result.setNombre( resultSet.getString( "nombre_marca" ) );
                     result.setPaisOrigen( resultSet.getString( "origen" ) );
+            
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+        
+        
+        return result; 
+        
+     }
+    
+    public static List<TBLMarca> GetMarcas (final CDatabaseConnection dbConnection) {
+        
+        List<TBLMarca> result = new ArrayList<TBLMarca>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM marca");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLMarca tblMarca = new TBLMarca(); 
+                    
+                    tblMarca.setCodigo( resultSet.getString( "codigo_marca" ) );
+                    tblMarca.setNombre( resultSet.getString( "nombre_marca" ) );
+                    tblMarca.setPaisOrigen( resultSet.getString( "origen" ) );
+                    
+                    result.add( tblMarca );
             
                 }
 
@@ -499,7 +893,7 @@ public class DanivanIIDAO {
                 
                 Statement statement = dbConnection.getDatabaseConnection().createStatement();
                 
-                ResultSet resultSet = statement.executeQuery( "SELECT * FROM proveedor WHERE rif = '" + strCodigo + "'");
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM tipo_medicina WHERE codigo_tipo = '" + strCodigo + "'");
                 
                 if ( resultSet.next() ) {
                     
@@ -509,6 +903,86 @@ public class DanivanIIDAO {
                     result.setNombre( resultSet.getString( "nombre" ) );
                     result.setDescripcion(  resultSet.getString( "descripcion" ) );
 
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+        
+        
+        return result; 
+        
+     }
+    
+    public static List<TBLTipoMedicina> GetTipoMedicinas (final CDatabaseConnection dbConnection) {
+        
+        List<TBLTipoMedicina>  result = new ArrayList<TBLTipoMedicina>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM tipo_medicina");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLTipoMedicina tblTipoMedicina = new TBLTipoMedicina(); 
+                    
+                    tblTipoMedicina.setCodigo( resultSet.getString( "codigo_tipo" ) );
+                    tblTipoMedicina.setNombre( resultSet.getString( "nombre" ) );
+                    tblTipoMedicina.setDescripcion(  resultSet.getString( "descripcion" ) );
+                    
+                    result.add( tblTipoMedicina );
+
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+        
+        
+        return result; 
+        
+     }
+    
+    public static List<TBLProveedor> GetProveedores (final CDatabaseConnection dbConnection, String strRif) {
+        
+        List<TBLProveedor> result = new ArrayList<TBLProveedor>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM proveedor");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLProveedor tblProveedor = new TBLProveedor(); 
+                    
+                    tblProveedor.setRif( resultSet.getString( "rif" ) );
+                    tblProveedor.setNombre( resultSet.getString( "nombre_proveedor" ) );
+                    tblProveedor.settelefono( resultSet.getString( "telefono_proveedor" ) );
+                    tblProveedor.setCorreo( resultSet.getString( "correo_proveedor" ) );
+                    tblProveedor.setUrl( resultSet.getString( "url" ) );
+                    
+                    result.add( tblProveedor );
+                    
                 }
 
                 resultSet.close();
@@ -565,7 +1039,6 @@ public class DanivanIIDAO {
         return result; 
         
      }
-    
     public static TBLUser checkData( final CDatabaseConnection dbConnection, final String strUser, final String strPassword ) {
         
         TBLUser result = null;
