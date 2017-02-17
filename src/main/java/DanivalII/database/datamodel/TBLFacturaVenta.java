@@ -12,28 +12,51 @@ public class TBLFacturaVenta {
      
      protected String strEstado = null;
      
-     protected Double DNventa = null;
-     
+     protected Double DTotal = null;
+    
      protected String strDescription = null;
 
-    
+     protected String strIdCliente = null;
      
-     
-    public TBLFacturaVenta( String strNventa, int intNcaja, LocalDate fventa, String strEstado, Double dNventa, String strDescription ) {
+    public TBLFacturaVenta( String strNventa, int intNcaja, LocalDate fventa, String strEstado, Double dNventa, String strDescription, String strIdCliente ) {
         super();
         this.strNventa = strNventa;
         this.intNcaja = intNcaja;
         this.Fventa = fventa;
         this.strEstado = strEstado;
-        this.DNventa = dNventa;
+        this.DTotal = dNventa;
         this.strDescription = strDescription;
+        this.strIdCliente = strIdCliente;
     }
 
     public TBLFacturaVenta ( )  {
         super();
 
+    } 
+   
+    public Double getDTotal() {
+        
+        return DTotal;
     }
 
+    
+    public void setDTotal( Double dTotal ) {
+        
+        this.DTotal = dTotal;
+    } 
+    
+   public String getStrIdCliente() {
+       
+       return strIdCliente;
+   }
+
+   
+   public void setStrIdCliente( String strIdCliente ) {
+       
+       this.strIdCliente = strIdCliente;
+   }
+
+    
     public String getNventa() {
         
         return strNventa;

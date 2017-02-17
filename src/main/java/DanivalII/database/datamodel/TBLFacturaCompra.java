@@ -14,20 +14,38 @@ public class TBLFacturaCompra implements Serializable {
     protected Double dTotal = null;
         
     protected String strEstado = null;
+    
+    protected String strRifproveedor = null;
  
-    public TBLFacturaCompra( String strNFacutra, LocalDate fechaRecepcion, Double dTotal, String strEstado ) {
+    
+
+
+    public TBLFacturaCompra( String strNFacutra, LocalDate fechaRecepcion, Double dTotal, String strEstado, String strRifproveedor ) {
         super();
         this.strNFacutra = strNFacutra;
         this.FechaRecepcion = fechaRecepcion;
         this.dTotal = dTotal;
         this.strEstado = strEstado;
+        this.strRifproveedor = strRifproveedor;
     }
 
+
+    
     public TBLFacturaCompra(  ) {
         super();
 
     }
 
+    public String getRifproveedor() {
+        
+        return strRifproveedor;
+    }
+
+    
+    public void setRifproveedor( String strRifproveedor ) {
+        
+        this.strRifproveedor = strRifproveedor;
+    }
     
     public String getNFacutra() {
         

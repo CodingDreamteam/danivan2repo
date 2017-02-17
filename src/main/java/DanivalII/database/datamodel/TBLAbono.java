@@ -1,17 +1,20 @@
 package DanivalII.database.datamodel;
 
+import java.io.Serializable;
 
-public class TBLAbono {
+public class TBLAbono implements Serializable{
    
+    private static final long serialVersionUID = -1344700220060514048L;
+
     protected String strNumero = null;
     
-    protected int intCantidad;
+    protected Double intCantidad = null;
+    
+    protected String NVentasFacturaV = null;
+    
+    protected String strIdCliente = null;
 
-    public TBLAbono( String strNumero, int intCantidad ) {
-        super();
-        this.strNumero = strNumero;
-        this.intCantidad = intCantidad;
-    }
+
     
     public TBLAbono( ) {
         super();
@@ -19,6 +22,44 @@ public class TBLAbono {
     }
 
     
+    public TBLAbono( String strNumero, Double intCantidad, String nVentasFacturaV, String strIdCliente ) {
+        super();
+        this.strNumero = strNumero;
+        this.intCantidad = intCantidad;
+        this.NVentasFacturaV = nVentasFacturaV;
+        this.strIdCliente = strIdCliente;
+    }
+
+    
+    
+    
+    public String getNVentasFacturaV() {
+        
+        return NVentasFacturaV;
+    }
+
+
+    
+    public void setNVentasFacturaV( String nVentasFacturaV ) {
+        
+        this.NVentasFacturaV = nVentasFacturaV;
+    }
+
+
+    
+    public String getIdCliente() {
+        
+        return strIdCliente;
+    }
+
+
+    
+    public void setIdCliente( String strIdCliente ) {
+        
+        this.strIdCliente = strIdCliente;
+    }
+
+
     public String getNumero() {
         
         return strNumero;
@@ -31,13 +72,13 @@ public class TBLAbono {
     }
 
     
-    public int getCantidad() {
+    public Double getCantidad() {
         
         return intCantidad;
     }
 
     
-    public void setCantidad( int intCantidad ) {
+    public void setCantidad( Double intCantidad ) {
         
         this.intCantidad = intCantidad;
     }

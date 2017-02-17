@@ -10,7 +10,7 @@ public class TBLPrincipioActivo implements Serializable{
     
     protected String strNombre = null;
 
-        
+    protected String strDescripcion = null;    
     
     public TBLPrincipioActivo( String strCodigo, String strNombre ) {
         super();
@@ -21,6 +21,18 @@ public class TBLPrincipioActivo implements Serializable{
     public TBLPrincipioActivo ( )  {
         super();
 
+    }
+
+    
+    public String getDescripcion() {
+        
+        return strDescripcion;
+    }
+
+    
+    public void setDescripcion( String strDescripcion ) {
+        
+        this.strDescripcion = strDescripcion;
     }
 
     public String getCodigo() {
