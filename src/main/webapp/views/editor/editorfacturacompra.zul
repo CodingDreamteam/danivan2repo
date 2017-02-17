@@ -1,0 +1,50 @@
+<?page title="Factura Compra" contentType="text/html;charset=UTF-8"?>
+<zk>
+  <window id="windowcompra" xmlns:w="client" apply="" title="Factura Compra" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelcompra" value="Nro compra" width="150px" />
+                        <textbox id="textboxcompra" value="" width="250px" tabindex="1">
+                            <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "0123456789")) this.$doKeyPress_(evt); } ]]>
+                          
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelfecharecompra" value="Fecha Recepcion" width="150px" />
+                         <datebox id="dateBoxfechacompra" ></datebox>
+                    </row>
+                    
+                    
+                    <row>
+                        <label id="labelafechaventa" value="Fecha venta" width="150px" />
+                        <datebox id="dateBoxfechaventa" ></datebox>
+                    </row>
+                    
+                    <row>
+                        <label id="labeltotalcompra" value="Monto Total" width="150px" />
+                        <textbox id="textboxtotalcompra" ></textbox>
+                    </row>
+                    <row>
+                        <label id="labelestadocompra" value="Estado" width="150px" />
+                        <textbox id="textboxestadocompra" ></textbox>
+                    </row>
+					<!-- usar un metodo como el de los tab y tabpanel para agregar campos a la vista -->
+
+
+
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+                <button id="agregarp" label="Agregar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+      </window>
+</zk>

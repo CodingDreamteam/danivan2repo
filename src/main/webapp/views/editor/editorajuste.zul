@@ -1,0 +1,47 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="windowajuste" xmlns:w="client" apply="" title="Ajuste" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelnumeroajuste" value="Nro ajuste" width="150px" />
+                        <textbox id="textboxcodiajuste" value="" width="250px" tabindex="1">
+                            <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "0123456789")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelaobserjuste" value="observacion" width="150px" />
+                        <textbox id="textboxajuste" value="" width="250px" tabindex="2">
+                        <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labeltelcantidad" value="cantidad" width="150px" />
+                        <textbox id= "textCantidad"></textbox>
+                    </row>
+                    <row>
+                        <label id="labelafeajus" value="Fecha ajuste" width="150px" />
+                        <datebox id="dateBoxajus" ></datebox>
+                    </row>
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+         </window>
+</zk>

@@ -1,0 +1,44 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <window id="windowMedici" xmlns:w="client" apply="" title="Tipo Medicina" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelcodigomed" value="Codigo" width="150px" />
+                        <textbox id="textboxcodimed" value="" width="250px" tabindex="1">
+                            <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "0123456789")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelnombremedi" value="Nombre" width="150px" />
+                        <textbox id="textboxnombremedi" value="" width="250px" tabindex="2">
+                        <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+
+                    <row>
+                        <label id="labeldescripcion" value="Descripcion" width="150px" />
+                        <textbox id="textboxdescripcion" ></textbox>
+                    </row>
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+      </window>
+</zk>

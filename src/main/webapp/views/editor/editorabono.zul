@@ -1,0 +1,33 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="windowMarca" xmlns:w="client" apply="" title="Marca" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelnumero" value="Numero" width="150px" />
+                        <textbox id="textboxnumero" value="" width="250px" tabindex="1">
+                            <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "0123456789")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelcantidad" value="Cantidad" width="150px" />
+                        <textbox id="textboxnombremar" value="" width="250px" tabindex="2"></textbox>
+                    </row>
+           
+    
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+         </window>
+</zk>

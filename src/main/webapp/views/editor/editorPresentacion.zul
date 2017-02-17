@@ -1,0 +1,60 @@
+<?page title="Presentacion" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <window id="windowpresen" xmlns:w="client" apply="" title="Presentacion" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelLote" value="Nro Lote" width="150px" />
+                        <textbox id="textboxlote" value="" width="250px" tabindex="1">
+                            <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "0123456789")) this.$doKeyPress_(evt); } ]]>
+                          
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelcantexis" value="Contidad existente" width="150px" />
+                        <textbox id="textboxcantexis" value="" width="250px" tabindex="2">
+                        <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelafechapro" value="Fecha" width="150px" />
+                        <datebox id="dateBoxpro" ></datebox>
+                    </row>
+                    <row>
+                        <label id="labelcosto" value="Costo" width="150px" />
+                        <textbox id="textboxcosto" ></textbox>
+                    </row>
+
+                    <row>
+                        <label id="labelPrecioventa" value="Principio Activo" width="150px" />
+                        <textbox id="textboxPrecioventao" ></textbox>
+                    </row>
+					<row>
+                        <label id="labelaDateven" value="Fecha" width="150px" />
+                        <datebox id="dateBoxDateven" ></datebox>
+                    </row>
+                    
+                    <row>
+                        <label id="labelfechaven" value="Codigo Barra" width="150px" />
+                        <textbox id="textboxfechaven" value="" width="250px" tabindex="6"  />
+                    </row>
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+         </window>
+</zk>

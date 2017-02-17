@@ -1,0 +1,48 @@
+<?page title="factura venta" contentType="text/html;charset=UTF-8"?>
+<zk>
+  <window id="windowpresen" xmlns:w="client" apply="" title="Factura venta" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelnventa" value="Nro venta" width="150px" />
+                        <textbox id="textboxventa" value="" width="250px" tabindex="1"></textbox>
+                    </row>
+                    <row>
+                        <label id="labelcaja" value="nro Caja" width="150px" />
+                        <textbox id="textboxncaja" value="" width="250px" tabindex="2">
+ 
+                        </textbox>
+                    </row>
+                    
+                    
+                    <row>
+                        <label id="labelafechaventa" value="Fecha venta" width="150px" />
+                        <datebox id="dateBoxfechaventa" ></datebox>
+                    </row>
+                    
+                    
+                    <row>
+                        <label id="labelestado" value="Estado" width="150px" />
+                        <textbox id="textboxestado" ></textbox>
+                    </row>
+			
+                    <row>
+                        <label id="labelMontototal" value="Monto Total" width="150px" />
+                        <textbox id="textboxMontototal" ></textbox>
+                    </row>
+					<row>
+                        <label id="labeldescrip" value="Descripcion" width="150px" />
+                        <textbox id="textboxdescrp" ></textbox>
+                    </row>
+
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+                <button id="agregarp" label="Agregar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+      </window>
+</zk>

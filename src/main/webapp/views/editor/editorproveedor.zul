@@ -1,0 +1,55 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <window id="windowProveedor" xmlns:w="client" apply="" title="Proveedor" border="normal" hflex="min">
+        <vlayout width="355px">
+            <grid hflex="min">
+                <rows>
+                    <row>
+                        <label id="labelRif" value="RIF" width="150px" />
+                        <textbox id="textboxRif" value="" width="250px" tabindex="1">
+                            <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "0123456789")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+                    <row>
+                        <label id="labelnombrePro" value="Nombre" width="150px" />
+                        <textbox id="textboxnombrePro" value="" width="250px" tabindex="2">
+                        <attribute w:name="doKeyPress_">
+                                
+                                <![CDATA[ function(evt) { if (!this._shallIgnore(evt, "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM")) this.$doKeyPress_(evt); } ]]>
+                                
+                            
+                            
+                        </attribute>
+                        </textbox>
+                    </row>
+
+                    <row>
+                        <label id="labelTelefono" value="Telefono" width="150px" />
+                        <textbox id="textboxTelefono" ></textbox>
+                    </row>
+
+                    
+                    <row>
+                        <label id="labelCorreo" value="Correo" width="150px" />
+                        <textbox id="textboxCorreo" value="" width="250px" tabindex="6"  />
+                    </row>
+                    <row>
+                        <label id="labelurl" value="Url" width="150px" />
+                        <textbox id="textboxUrl" ></textbox>
+                    </row>
+                    
+                </rows>
+            </grid>
+            <div id="buttoncontainer">
+                <button id="buttonguardar" label="Guardar Datos" style="float:right;margin-left:15px"></button>
+                <button id="buttoncancelar" label="Cancelar" style="float:right;margin-left:15px"></button>
+            </div>
+        </vlayout>
+      </window>
+</zk>
