@@ -2,8 +2,8 @@ package DanivalII.database.dao;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 import DanivalII.database.CDatabaseConnection;
 import DanivalII.database.datamodel.TBLAbono;
@@ -394,6 +394,47 @@ public class DanivanIIDAO {
                     result.setFechaing( resultSet.getDate( "fecha_creado" ).toLocalDate() );
                     result.setMEmpleo( resultSet.getString( "modo_empleo" ) );
                                        
+                }
+
+                resultSet.close();
+                
+                statement.close();
+            }
+        }
+        catch ( Exception ex ) {
+            
+            ex.getStackTrace();
+            
+        }
+        
+        
+        return result; 
+        
+     }
+    
+    public static List<TBLProductos> GetProductos (final CDatabaseConnection dbConnection) {
+        
+        List<TBLProductos> result = new ArrayList<TBLProductos>(); 
+        
+        try {
+            if ( dbConnection != null && dbConnection.getDatabaseConnection()!=null ) {
+                
+                Statement statement = dbConnection.getDatabaseConnection().createStatement();
+                
+                ResultSet resultSet = statement.executeQuery( "SELECT * FROM producto");
+                
+                while ( resultSet.next() ) {
+                    
+                    TBLProductos tblProductos = new TBLProductos(); 
+                    
+                    tblProductos.setCodigo( resultSet.getString( "codigo_producto" ) );
+                    tblProductos.setCodigoBarras( resultSet.getString( "codigo_alt" ) );
+                    tblProductos.setNombre( resultSet.getString( "nombre" ) );
+                    tblProductos.setFechaing( resultSet.getDate( "fecha_creado" ).toLocalDate() );
+                    tblProductos.setMEmpleo( resultSet.getString( "modo_empleo" ) );
+                                       
+                    result.add( tblProductos );
+                    
                 }
 
                 resultSet.close();
